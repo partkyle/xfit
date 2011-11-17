@@ -148,16 +148,6 @@ class Workout
   }
 
   /**
-   * Set cash_out
-   *
-   * @param text $cashOut
-   */
-  public function setWorkoutDate($workout_date)
-  {
-    $this->workout_date = $workout_date;
-  }
-
-  /**
    * Get cash_out
    *
    * @return text
@@ -165,5 +155,15 @@ class Workout
   public function getWorkoutDate()
   {
     return $this->workout_date;
+  }
+
+  /**
+   * Set cash_out
+   *
+   * @param text $cashOut
+   */
+  public function setWorkoutDate($workout_date)
+  {
+    $this->workout_date = $workout_date;
   }
 }
