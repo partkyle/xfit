@@ -1,0 +1,39 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    <h1>Email list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('email_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
+                <td>{{ entity.email }}</td>
+                <td>
+                    <ul>
+                        <a href="{{ path('email_show', { 'id': entity.id }) }}" class="btn secondary">show</a>
+                        <a href="{{ path('email_edit', { 'id': entity.id }) }}" class="btn success">edit</a>
+                    </ul>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">No Records Found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="actions">
+        <a href="{{ path('email_new') }}" class="btn primary">
+            Create a new entry
+        </a>
+    </div>
+{% endblock %}
