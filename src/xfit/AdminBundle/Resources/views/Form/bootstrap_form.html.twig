@@ -20,7 +20,7 @@
 
 {% block textarea_widget %}
 {% spaceless %}
-    <textarea {{ block('widget_attributes') }}>{{ value }}</textarea>
+    <textarea {{ block('widget_attributes') }} class="xxlarge">{{ value }}</textarea>
 {% endspaceless %}
 {% endblock textarea_widget %}
 
@@ -225,10 +225,12 @@
 
 {% block field_row %}
 {% spaceless %}
-    <div>
+    <div class="clearfix">
         {{ form_label(form, label|default(null)) }}
-        {{ form_errors(form) }}
-        {{ form_widget(form) }}
+        <div class="input">
+            {{ form_errors(form) }}
+            {{ form_widget(form) }}
+        </div>
     </div>
 {% endspaceless %}
 {% endblock field_row %}

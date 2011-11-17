@@ -1,16 +1,20 @@
-<h1>Workout creation</h1>
+{% extends "::base.html.twig" %}
 
-<form action="{{ path('workout_create') }}" method="post" {{ form_enctype(form) }}>
-    {{ form_widget(form) }}
-    <p>
-        <button type="submit">Create</button>
-    </p>
-</form>
+{% block body %}
+  <h1>Workout creation</h1>
 
-<ul class="record_actions">
-    <li>
-        <a href="{{ path('workout') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+  <form action="{{ path('workout_create') }}" method="post" {{ form_enctype(form) }}>
+      {{ form_widget(form) }}
+      <div class="actions">
+          <button type="submit" class="btn primary">Create</button>
+      </div>
+  </form>
+
+  <ul class="record_actions">
+      <li>
+          <a href="{{ path('workout') }}">
+              Back to the list
+          </a>
+      </li>
+  </ul>
+{% endblock %}

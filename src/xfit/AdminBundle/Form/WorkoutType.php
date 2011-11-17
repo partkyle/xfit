@@ -10,8 +10,8 @@ class WorkoutType extends AbstractType
     public function buildForm(FormBuilder $builder, array $options)
     {
         $builder
-            ->add('name', 'text', array('required'=>true))
-            ->add('workout_date', 'date', array('required'=>true))
+            ->add('name')
+            ->add('workout_date')
             ->add('ante')
             ->add('buy_in')
             ->add('cash_out')

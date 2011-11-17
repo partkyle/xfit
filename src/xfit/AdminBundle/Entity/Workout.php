@@ -31,21 +31,21 @@ class Workout
   /**
    * @var text $ante
    *
-   * @ORM\Column(name="ante", type="text")
+   * @ORM\Column(name="ante", type="text", nullable="true")
    */
   private $ante;
 
   /**
    * @var text $buy_in
    *
-   * @ORM\Column(name="buy_in", type="text")
+   * @ORM\Column(name="buy_in", type="text", nullable="true")
    */
   private $buy_in;
 
   /**
    * @var text $cash_out
    *
-   * @ORM\Column(name="cash_out", type="text")
+   * @ORM\Column(name="cash_out", type="text", nullable="true")
    */
   private $cash_out;
 

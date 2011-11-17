@@ -3,3 +3,4 @@ app/logs/*
 vendor/
 *.box
 .vagrant
+web/bundles

@@ -1,45 +1,44 @@
-<h1>Workout</h1>
+{% extends "::base.html.twig" %}
 
-<table class="record_properties">
-    <tbody>
-        <tr>
-            <th>Id</th>
-            <td>{{ entity.id }}</td>
-        </tr>
-        <tr>
-            <th>Name</th>
-            <td>{{ entity.name }}</td>
-        </tr>
-        <tr>
-            <th>Ante</th>
-            <td>{{ entity.ante }}</td>
-        </tr>
-        <tr>
-            <th>Buy_in</th>
-            <td>{{ entity.buyin }}</td>
-        </tr>
-        <tr>
-            <th>Cash_out</th>
-            <td>{{ entity.cashout }}</td>
-        </tr>
-    </tbody>
-</table>
+{% block body %}
+    <h1>Workout</h1>
 
-<ul class="record_actions">
-    <li>
-        <a href="{{ path('workout') }}">
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ entity.name }}</td>
+            </tr>
+            <tr>
+                <th>Ante</th>
+                <td>{{ entity.ante }}</td>
+            </tr>
+            <tr>
+                <th>Buy_in</th>
+                <td>{{ entity.buyin }}</td>
+            </tr>
+            <tr>
+                <th>Cash_out</th>
+                <td>{{ entity.cashout }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="actions">
+        <a href="{{ path('workout') }}" class="btn secondary">
             Back to the list
         </a>
-    </li>
-    <li>
-        <a href="{{ path('workout_edit', { 'id': entity.id }) }}">
+        <a href="{{ path('workout_edit', { 'id': entity.id }) }}" class="btn success">
             Edit
         </a>
-    </li>
-    <li>
-        <form action="{{ path('workout_delete', { 'id': entity.id }) }}" method="post">
+
+        <form action="{{ path('workout_delete', { 'id': entity.id }) }}" method="post" class="pull-right">
             {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
+            <button type="submit" class="btn danger">Delete</button>
         </form>
-    </li>
-</ul>
+    </div>
+{% endblock %}
