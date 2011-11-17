@@ -209,7 +209,7 @@ class WorkoutController extends Controller
         foreach ($emails as $email)
         {
             $message = \Swift_Message::newInstance()
-                ->setSubject('X Fit Workout ' . $entity->getWorkoutDate()->format("Y-m-d"))
+                ->setSubject('X Fit Workout ' . $entity->getWorkoutDate()->format("l F d, Y"))
                 ->setFrom('kyle.partridge@sendgrid.com')
                 ->setTo($email->getEmail())
                 ->setBody($this->renderView('xfitAdminBundle:Workout:email.txt.twig', array('entity' => $entity, 'name' => $email->getName())))
