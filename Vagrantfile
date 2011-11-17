@@ -6,6 +6,12 @@ Vagrant::Config.run do |config|
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "base"
 
+  config.vm.customize do |vm|
+    vm.memory_size = 2048
+    vm.cpu_count = 4
+    vm.name = "xfit"
+  end
+
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = "cookbooks"
 
