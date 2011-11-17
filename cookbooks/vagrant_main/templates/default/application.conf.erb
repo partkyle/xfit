@@ -1,0 +1,9 @@
+<VirtualHost *:80>
+  ServerName xfit
+  DocumentRoot <%= @node[:vagrant][:directory] %>/web
+
+  <Directory "<%= @node[:vagrant][:directory] %>/web">
+    AllowOverride All
+    Allow from All
+  </Directory>
+</VirtualHost>
