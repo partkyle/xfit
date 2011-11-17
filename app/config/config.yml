@@ -20,6 +20,9 @@ framework:
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
+    form:
+        resources:
+            - 'xfitAdminBundle:Form:bootstrap_form.html.twig'
 
 # Assetic Configuration
 assetic:
