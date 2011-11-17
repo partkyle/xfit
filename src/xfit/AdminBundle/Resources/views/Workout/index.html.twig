@@ -25,6 +25,9 @@
                 <td>
                     <a href="{{ path('workout_show', { 'id': entity.id }) }}" class="btn secondary">show</a>
                     <a href="{{ path('workout_edit', { 'id': entity.id }) }}" class="btn success">edit</a>
+                    <form action="{{ path('workout_email', {'id': entity.id}) }}" method="post">
+                        <input type="submit" class="btn info" value="email"/>
+                    </form>
                 </td>
             </tr>
             {% else %}

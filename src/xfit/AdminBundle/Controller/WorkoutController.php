@@ -192,6 +192,35 @@ class WorkoutController extends Controller
         return $this->redirect($this->generateUrl('workout'));
     }
 
+    /**
+     * Deletes a Workout entity.
+     *
+     * @Route("/{id}/email", name="workout_email")
+     * @Method("post")
+     */
+    public function emailAction($id)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $entity = $em->getRepository('xfitAdminBundle:Workout')->find($id);
+
+        $emails = $em->getRepository('xfitAdminBundle:Email')->findAll();
+
+        foreach ($emails as $email)
+        {
+            $message = \Swift_Message::newInstance()
+                ->setSubject('X Fit Workout ' . $entity->getWorkoutDate()->format("Y-m-d"))
+                ->setFrom('kyle.partridge@sendgrid.com')
+                ->setTo($email->getEmail())
+                ->setBody($this->renderView('xfitAdminBundle:Workout:email.txt.twig', array('entity' => $entity, 'name' => $email->getName())))
+            ;
+
+            $this->get('mailer')->send($message);
+        }
+
+        return $this->redirect($this->generateUrl('workout'));
+    }
+
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder(array('id' => $id))
