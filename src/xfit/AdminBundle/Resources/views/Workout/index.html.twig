@@ -6,8 +6,8 @@
     <table class="records_list">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Name</th>
+                <th>Date</th>
                 <th>Ante</th>
                 <th>Buy_in</th>
                 <th>Cash_out</th>
@@ -17,8 +17,8 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('workout_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.name }}</td>
+                <td><a href="{{ path('workout_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
+                <td>{{ entity.workoutdate | date('Y-m-d') }}</td>
                 <td>{{ entity.ante }}</td>
                 <td>{{ entity.buyin }}</td>
                 <td>{{ entity.cashout }}</td>
@@ -26,6 +26,10 @@
                     <a href="{{ path('workout_show', { 'id': entity.id }) }}" class="btn secondary">show</a>
                     <a href="{{ path('workout_edit', { 'id': entity.id }) }}" class="btn success">edit</a>
                 </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="6">No Records Found</td>
             </tr>
         {% endfor %}
         </tbody>
