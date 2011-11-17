@@ -7,14 +7,9 @@
       {{ form_widget(form) }}
       <div class="actions">
           <button type="submit" class="btn primary">Create</button>
-      </div>
-  </form>
-
-  <ul class="record_actions">
-      <li>
-          <a href="{{ path('workout') }}">
+          <a href="{{ path('workout') }}" class="btn secondary">
               Back to the list
           </a>
-      </li>
-  </ul>
+      </div>
+  </form>
 {% endblock %}
