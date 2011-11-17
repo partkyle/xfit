@@ -49,6 +49,13 @@ class Workout
      */
     private $cash_out;
 
+    /**
+     * @var date $workout_date
+     *
+     * @ORM\Column(name="workout_date", type="date")
+     */
+    private $workout_date;
+
 
     /**
      * Get id
@@ -138,5 +145,25 @@ class Workout
     public function getCashOut()
     {
         return $this->cash_out;
+    }
+
+    /**
+     * Set cash_out
+     *
+     * @param text $cashOut
+     */
+    public function setWorkoutDate($workout_date)
+    {
+        $this->workout_date = $workout_date;
+    }
+
+    /**
+     * Get cash_out
+     *
+     * @return text 
+     */
+    public function getWorkoutDate()
+    {
+        return $this->workout_date;
     }
 }
